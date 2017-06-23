@@ -1,17 +1,16 @@
-function [sliso,slisx,Psi,h,k2_k0k1,k2_k1] = bgc_sliso(pco2,dic,temp,sal)
-%bgc_sliso
+function [Q,Qx,Psi] = bgc_sliso(pco2,dic,temp,sal)
+%bgc_sliso Calculate isocapnic quotient from input conditions
 % === INPUTS ==============================================================
 %  pco2: seawater CO2 partial pressure (pCO2)             / microatm
 %   dic: dissolved inorganic carbon (DIC)                 / micromol/kg
 %  temp: seawater temperature                             / degrees C
 %   sal: practical salinity                               / 
 % === OUTPUTS =============================================================
-% sliso: isocap slope                                     /
-% slisx: approximation of isocap slope                    / 
+%     Q: isocap slope                                     /
+%    Qx: approximation of isocap slope                    / 
 %   Psi: Phi for calcification (i.e. RA_RC = [-2 -1])     / 
-%     h: hydrogen ion concentration                       / mol/kg
 % =========================================================================
-% Written by Matthew P. Humphreys, last updated 2017-05-11
+% Written by Matthew P. Humphreys, last updated 2017-06-23
 % =========================================================================
 
 % Evaluate coefficients
@@ -46,17 +45,17 @@ Z = 2*k1.*k2.*kB.*co2aq;
 h = (-co2aq.*k1 - sqrt((co2aq.*k1).^2 ...
     - 4*(co2aq - dic*1e-6).*co2aq.*k1.*k2)) ./ (2*(co2aq - dic*1e-6));
 
-% Isocap slope
-sliso = (-h.^4.*(h + 2*kB) - (kB.^2 + X).*h.^3 - Y.*h.*(2*h + kB) ...
+% Isocap slope <Q>
+Q = (-h.^4.*(h + 2*kB) - (kB.^2 + X).*h.^3 - Y.*h.*(2*h + kB) ...
     - Z.*(3*h + 2*kB)) ./ (-(k1.*co2aq.*h + 2*k1.*k2.*co2aq) ...
     .* (h + kB).^2);
 
-% Approximate isocap slope
+% Approximate isocap slope <Qx>
 k2_k0k1 = k2 ./ (k0 .* k1);
-slisx = 1 + 2 * k2_k0k1 .* dic ./ pco2;
+Qx = 1 + 2 * k2_k0k1 .* dic ./ pco2;
 k2_k1 = k2 ./ k1;
 
-% Psi (Frankignoulle et al., 1994)
-Psi = -1 + 2./sliso;
+% Psi (Frankignoulle et al., 1994) <Psi>
+Psi = -1 + 2./Q;
 
 end %function bgc_sliso
