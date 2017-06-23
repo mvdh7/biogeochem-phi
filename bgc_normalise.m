@@ -1,7 +1,7 @@
 function nCq_nAq = bgc_normalise(Aq_Cq)
 %bgc_normalise Normalise Aq and Cq for any process to unit vector case
 % === INPUT ===============================================================
-%   Aq_Cq: change in [Aq Cq] due to biogeochemical process / micromol/kg
+%   Aq_Cq: change in [AT CT] due to biogeochemical process / micromol/kg
 % === OUTPUT ==============================================================
 % nAq_nCq: input [Aq Cq] normalised such that sqrt(Aq^2 + Cq^2) = 1
 % =========================================================================
