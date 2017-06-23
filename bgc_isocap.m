@@ -13,24 +13,27 @@ function [Q,Qx,Psi] = bgc_isocap(pco2,dic,temp,sal)
 % Written by Matthew P. Humphreys, last updated 2017-06-23
 % =========================================================================
 
+% Absolute zero
+azero = 273.15; % degC
+
 % Evaluate coefficients
-[~,pkHSO4] = cD90(temp+273.15,sal);
+[~,pkHSO4] = cD90(temp+azero,sal);
 TSO4 = cMR66(sal);
 kHSO4 = 10.^-pkHSO4;
 t2f = log10(1 + TSO4./kHSO4);
 
 k0 = cW74(temp,sal);
 
-[pKstarT_C1,pKstarT_C2] = cLDK00(temp+273.15,sal);
+[pKstarT_C1,pKstarT_C2] = cLDK00(temp+azero,sal);
 k1 = 10.^-(pKstarT_C1 + t2f);
 k2 = 10.^-(pKstarT_C2 + t2f);
 
 tB = cLKB10(sal) * 1e-6;
 
-pKstarT_w = cDSC07(temp+273.15,sal);
+pKstarT_w = cDSC07(temp+azero,sal);
 kw = 10.^-(pKstarT_w + t2f);
 
-pKstarT_B = cD90(temp+273.15,sal);
+pKstarT_B = cD90(temp+azero,sal);
 kB = 10.^-(pKstarT_B + t2f); % mol/kg
 
 % Aqueous CO2(aq) concentration
