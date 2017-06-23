@@ -5,7 +5,12 @@ function nCq_nAq = bgc_normalise(Aq_Cq)
 % === OUTPUT ==============================================================
 % nAq_nCq: input [Aq Cq] normalised such that sqrt(Aq^2 + Cq^2) = 1
 % =========================================================================
-% Written by Matthew P. Humphreys, last updated 2017-06-23
+% Written by Matthew P. Humphreys
+%  v1: last updated 2017-06-23
+% Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
+%           Achterberg EP (2017): "On the influence of marine
+%           biogeochemical processes over CO2 exchange between the
+%           atmosphere and ocean", Marine Chemistry, in prep.
 % =========================================================================
 
 % Unpack input
