@@ -1,23 +1,28 @@
-function [PA_PC,P] = bgc_normalise(PA_PC_set)
+function nCq_nAq = bgc_normalise(Aq_Cq)
 %bgc_normalise Normalise Aq and Cq for any process to unit vector case
-% Matthew P. Humphreys [2015-11-18]
+% === INPUTS ==============================================================
+% Aq_Cq: change in [Aq Cq] due to biogeochemical process / micromol/kg
+% === OUTPUTS =============================================================
+% nAq_nCq: input [Aq Cq] normalised such that sqrt(Aq^2 + Cq^2) = 1
+% =========================================================================
+% Written by Matthew P. Humphreys, last updated 2017-06-23
+% =========================================================================
 
 % Unpack input
-PA_set = PA_PC_set(1);
-PC_set = PA_PC_set(2);
+Aq_set = Aq_Cq(1);
+Cq_set = Aq_Cq(2);
 
 % Normalise PC
-if PC_set == 0, PC = 0;
-else, PC = (abs(PC_set)/PC_set) * sqrt(PC_set^2/(PC_set^2+PA_set^2));
+if Cq_set == 0, nCq = 0;
+else, nCq = (abs(Cq_set)/Cq_set) * sqrt(Cq_set^2/(Cq_set^2+Aq_set^2));
 end %if
 
 % Normalise PA
-if PA_set == 0, PA = 0;
-else, PA = (abs(PA_set)/PA_set) * sqrt(PA_set^2/(PC_set^2+PA_set^2));
+if Aq_set == 0, nAq = 0;
+else, nAq = (abs(Aq_set)/Aq_set) * sqrt(Aq_set^2/(Cq_set^2+Aq_set^2));
 end %if
 
-% Generate output and calculate P = 1 as a check
-PA_PC = [PA PC];
-P = sqrt(PC^2 + PA^2);
+% Generate output
+nCq_nAq = [nAq nCq];
 
 end %function bgc_normalise
