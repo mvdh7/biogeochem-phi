@@ -1,13 +1,13 @@
-function [Q,Qx,Psi] = bgc_sliso(pco2,dic,temp,sal)
-%bgc_sliso Calculate isocapnic quotient from input conditions
+function [Q,Qx,Psi] = bgc_isocap(pco2,dic,temp,sal)
+%bgc_isocap Calculate isocapnic quotient from input conditions
 % === INPUTS ==============================================================
 %  pco2: seawater CO2 partial pressure (pCO2)             / microatm
 %   dic: dissolved inorganic carbon (DIC)                 / micromol/kg
 %  temp: seawater temperature                             / degrees C
 %   sal: practical salinity                               / 
 % === OUTPUTS =============================================================
-%     Q: isocap slope                                     /
-%    Qx: approximation of isocap slope                    / 
+%     Q: isocapnic quotient                               /
+%    Qx: approximation of isocapnic quotient              /
 %   Psi: Phi for calcification (i.e. RA_RC = [-2 -1])     / 
 % =========================================================================
 % Written by Matthew P. Humphreys, last updated 2017-06-23
@@ -53,9 +53,8 @@ Q = (-h.^4.*(h + 2*kB) - (kB.^2 + X).*h.^3 - Y.*h.*(2*h + kB) ...
 % Approximate isocap slope <Qx>
 k2_k0k1 = k2 ./ (k0 .* k1);
 Qx = 1 + 2 * k2_k0k1 .* dic ./ pco2;
-k2_k1 = k2 ./ k1;
 
 % Psi (Frankignoulle et al., 1994) <Psi>
 Psi = -1 + 2./Q;
 
-end %function bgc_sliso
+end %function bgc_isocap
