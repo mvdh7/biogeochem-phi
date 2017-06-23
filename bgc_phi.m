@@ -7,8 +7,8 @@ function Phi = bgc_phi(Q,Aq_Cq)
 % === OUTPUTS =============================================================
 %   Phi: extra change in DIC required to not change pCO2 / micromol/kg
 % =========================================================================
-% Written by Matthew P. Humphreys
-%  v1: last updated 2017-06-23
+% --- Written by Matthew P. Humphreys -------------------------------------
+%       v1: last updated 2017-06-23
 % Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
 %           Achterberg EP (2017): "On the influence of marine
 %           biogeochemical processes over CO2 exchange between the

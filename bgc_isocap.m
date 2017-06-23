@@ -1,5 +1,6 @@
 function [Q,Qx,Psi] = bgc_isocap(pco2,dic,temp,sal)
 %bgc_isocap Calculate isocapnic quotient from input conditions
+% Requires functions from https://github.com/mvdh7/oceancarb-constants
 % === INPUTS ==============================================================
 %  pco2: seawater CO2 partial pressure (pCO2)             / microatm
 %   dic: dissolved inorganic carbon (DIC)                 / micromol/kg
@@ -10,8 +11,8 @@ function [Q,Qx,Psi] = bgc_isocap(pco2,dic,temp,sal)
 %    Qx: approximation of isocapnic quotient              /
 %   Psi: Phi for calcification (i.e. RA_RC = [-2 -1])     / 
 % =========================================================================
-% Written by Matthew P. Humphreys
-%  v1: last updated 2017-06-23
+% --- Written by Matthew P. Humphreys -------------------------------------
+%       v1: last updated 2017-06-23
 % Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
 %           Achterberg EP (2017): "On the influence of marine
 %           biogeochemical processes over CO2 exchange between the
