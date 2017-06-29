@@ -12,7 +12,7 @@ function Phi = bgc_phi(Q,Aq_Cq)
 % Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
 %           Achterberg EP (2017): "On the influence of marine
 %           biogeochemical processes over CO2 exchange between the
-%           atmosphere and ocean", Marine Chemistry, in prep.
+%           atmosphere and ocean", Marine Chemistry, submitted
 % =========================================================================
 
 % Phi
