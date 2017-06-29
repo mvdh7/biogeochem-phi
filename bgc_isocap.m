@@ -12,11 +12,11 @@ function [Q,Qx,Psi] = bgc_isocap(pco2,dic,temp,sal)
 %   Psi: Phi for calcification (i.e. RA_RC = [-2 -1])     / 
 % =========================================================================
 % --- Written by Matthew P. Humphreys -------------------------------------
-%       v1: last updated 2017-06-23
+%       v1: last updated 2017-06-29
 % Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
 %           Achterberg EP (2017): "On the influence of marine
 %           biogeochemical processes over CO2 exchange between the
-%           atmosphere and ocean", Marine Chemistry, in prep.
+%           atmosphere and ocean", Marine Chemistry, submitted
 % =========================================================================
 
 % Absolute zero
@@ -45,19 +45,13 @@ kB = 10.^-(pKstarT_B + t2f); % mol/kg
 % Aqueous CO2(aq) concentration
 co2aq = pco2.*k0*1e-6;
 
-% Shorthands: X, Y and Z
-X = k1.*co2aq + kB.*tB + kw;
-Y = (k1.*kB + 2*k1.*k2).*co2aq + kB.*kw;
-Z = 2*k1.*k2.*kB.*co2aq;
-
 % Hydrogen ion concentration
 h = (-co2aq.*k1 - sqrt((co2aq.*k1).^2 ...
     - 4*(co2aq - dic*1e-6).*co2aq.*k1.*k2)) ./ (2*(co2aq - dic*1e-6));
 
 % Isocap slope <Q>
-Q = (-h.^4.*(h + 2*kB) - (kB.^2 + X).*h.^3 - Y.*h.*(2*h + kB) ...
-    - Z.*(3*h + 2*kB)) ./ (-(k1.*co2aq.*h + 2*k1.*k2.*co2aq) ...
-    .* (h + kB).^2);
+Q = ((k1.*co2aq.*h + 4*k1.*k2.*co2aq + kw.*h + h.^3) .* (kB + h).^2 ...
+    + kB.*tB.*h.^3) ./ (k1.*co2aq .* (2*k2 + h) .* (kB + h).^2);
 
 % Approximate isocap slope <Qx>
 k2_k0k1 = k2 ./ (k0 .* k1);
