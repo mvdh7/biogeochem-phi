@@ -10,7 +10,8 @@ function nCq_nAq = bgc_normalise(Aq_Cq)
 % Citation: Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & 
 %           Achterberg EP (2017): "On the influence of marine
 %           biogeochemical processes over CO2 exchange between the
-%           atmosphere and ocean", Marine Chemistry, submitted
+%           atmosphere and ocean", Marine Chemistry, in press,
+%           doi:10.1016/j.marchem.2017.12.006
 % =========================================================================
 
 % Unpack input
