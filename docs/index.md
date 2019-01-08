@@ -1,4 +1,4 @@
-# biogeochem-phi
+# Introduction
 
 The MATLAB functions in [the biogeochem-phi repository](https://github.com/mvdh7/biogeochem-phi) evaluate the different equations presented by <a href="https://doi.org/10.1016/j.marchem.2017.12.006">Humphreys et al. (2018)</a>.
 
