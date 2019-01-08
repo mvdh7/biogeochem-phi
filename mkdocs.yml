@@ -1,2 +1,4 @@
 site_name: biogeochem-phi
 theme: readthedocs
+repo_url: https://github.com/mvdh7/biogeochem-phi
+site_author: Matthew P. Humphreys
