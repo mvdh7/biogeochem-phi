@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/95231697.svg)](https://zenodo.org/badge/latestdoi/95231697)
 
+**Documentation:** [biogeochem-phi.readthedocs.io](https://biogeochem-phi.readthedocs.io/en/latest/)
+
 These scripts should be cited as:
 
 Humphreys MP, Daniels CJ, Wolf-Gladrow DA, Tyrrell T, & Achterberg EP (2017): "On the influence of marine biogeochemical processes over CO<sub>2</sub> exchange between the atmosphere and ocean", *Marine Chemistry* 199, 1-11, <a href="https://doi.org/10.1016/j.marchem.2017.12.006">doi:10.1016/j.marchem.2017.12.006</a>.
